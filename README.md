@@ -1,112 +1,93 @@
-````markdown name=README.md
 # Automated News Article Classification
 
-A Python-based project for classifying news articles using machine learning techniques and natural language processing (NLP). This repository aims to provide end-to-end solutions for ingesting news articles, preprocessing textual data, building and training models, and evaluating classification results.
+Automatically classify news articles into predefined categories using machine learning techniques.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Dataset](#dataset)
+- [Model](#model)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Overview
+
+Automated_News_Article_Classification is a machine learning project aiming to categorize news articles into topics based on their content. This can aid in content organization, recommendation systems, and media monitoring solutions.
 
 ## Features
 
-- **100% Python Implementation**: Easy to understand and extend.
-- **Preprocessing Pipelines**: Tokenization, stopword removal, stemming, and vectorization.
-- **Model Training**: Supports popular classifiers (e.g., Logistic Regression, SVM, Naive Bayes).
-- **Evaluation Metrics**: Accuracy, precision, recall, F1-score, confusion matrix.
-- **Modular Structure**: Easily plug and play different models and processing steps.
-- **Extensible for Custom Datasets**.
+- Preprocessing of raw news article data
+- Training machine learning models for text classification
+- Evaluation of model performance
+- Prediction/inference on new/unseen articles
+- Modular code structure for easy experimentation
 
-## Getting Started
+## Installation
 
-### Prerequisites
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/andulu6969/Automated_News_Article_Classification.git
+    cd Automated_News_Article_Classification
+    ```
 
-- Python 3.7+
-- Recommended: Setup a virtual environment
+2. **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+    *Make sure you have Python 3.7+ installed.*
 
-### Installation
+## Usage
 
-Clone the repository:
+1. **Prepare the Dataset**  
+   Place your dataset (e.g., CSV file of news articles and labels) in the `data/` directory.
 
-```bash
-git clone https://github.com/andulu6969/Automated_News_Article_Classification.git
-cd Automated_News_Article_Classification
-```
+2. **Training**
+    ```bash
+    python train.py --data data/news_dataset.csv --model output/model.pkl
+    ```
 
-Install required dependencies:
+3. **Evaluation**
+    ```bash
+    python evaluate.py --model output/model.pkl --test data/news_test.csv
+    ```
 
-```bash
-pip install -r requirements.txt
-```
+4. **Predicting**
+    ```bash
+    python predict.py --model output/model.pkl --input "Some news article text here"
+    ```
 
-### Usage
+## Dataset
 
-1. **Prepare your dataset**  
-   Organize your news articles in the desired format (CSV, JSON, etc). Update script paths as necessary.
+- Default data location: `data/news_dataset.csv`
+- Expected columns: `text`, `label` (customize as needed)
 
-2. **Run preprocessing**  
-   ```bash
-   python preprocess.py --input data/raw_articles.csv --output data/processed_articles.csv
-   ```
+## Model
 
-3. **Train a model**  
-   ```bash
-   python train.py --data data/processed_articles.csv --model output/classifier.pkl
-   ```
+Common approaches include:
+- Text vectorization (TF-IDF, word embeddings)
+- Classifiers (Naive Bayes, SVM, Logistic Regression, or Deep Learning models)
 
-4. **Evaluate the model**  
-   ```bash
-   python evaluate.py --model output/classifier.pkl --test data/test_articles.csv
-   ```
-
-5. **Classify new articles**  
-   ```bash
-   python classify.py --model output/classifier.pkl --input data/new_articles.csv
-   ```
-
-_Note: Script names and usage may differ depending on the actual implementation. See the scripts themselves for their exact argument structure._
-
-## Directory Structure
-
-```
-Automated_News_Article_Classification/
-├── data/             # Raw, processed, and test datasets
-├── scripts/          # Main Python scripts for preprocessing, training, evaluation, classification
-├── models/           # Saved models
-├── utils/            # Helper functions (preprocessing, analysis, etc.)
-├── requirements.txt
-├── README.md
-└── ...
-```
-
-## Example Dataset
-
-You can use any CSV of news articles with at least two columns: `text` (the article content) and `label` (the category/class). You may need to adapt the preprocess and train scripts to fit your dataset structure.
-
-## Supported Models
-
-- Logistic Regression
-- Support Vector Machines (SVM)
-- Naive Bayes
-- (Optional) Deep Learning models (e.g., LSTM, BERT) if added in the future
-
-## Evaluation
-
-The evaluation script provides:
-
-- Accuracy
-- Precision, Recall, F1-score (micro, macro, weighted)
-- Confusion matrix visualization
+Adjust model architecture and parameters in the relevant scripts or config files.
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Contributions are welcome! To contribute:
 
-1. Fork the repo
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a pull request
+1. Fork this repository.
+2. Create a new branch: `git checkout -b feature-branch`
+3. Commit your changes and push to your fork.
+4. Open a pull request describing your changes.
+
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more guidelines.
 
 ## License
 
-[MIT](LICENSE)
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
-````
+**Contact:**  
+For questions or support, please open an issue or contact [andulu6969](https://github.com/andulu6969).
